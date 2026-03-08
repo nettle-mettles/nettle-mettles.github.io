@@ -5,155 +5,164 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Prologue Problem — In the Weeds</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #111a0f;
-      --surface: #182115;
-      --border: #2a3d25;
-      --text: #e8e4d8;
-      --muted: #7a8e73;
-      --accent: #9fd86e;
-      --accent-dim: #6aad3e;
+      --bg: #f5f0e6;
+      --bg-alt: #ede8db;
+      --ink: #1c160a;
+      --muted: #7a6f5a;
+      --accent: #8a6000;
+      --accent-bright: #b07d0a;
+      --rule: #d4ccba;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
       font-weight: 300;
       line-height: 1.7;
-      min-height: 100vh;
     }
 
-    header {
-      padding: 0 2.5rem;
+    .topbar {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 0.55rem 2.5rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-      height: 4rem;
-      position: sticky;
-      top: 0;
-      background: var(--bg);
-      z-index: 10;
-    }
-
-    .site-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    nav {
-      display: flex;
-      gap: 2rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.06em;
+      align-items: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
-    nav a { color: var(--muted); text-decoration: none; }
-    nav a:hover { color: var(--text); }
+    .topbar a { color: var(--bg-alt); text-decoration: none; }
+    .topbar a:hover { color: #fff; }
+    .topbar-links { display: flex; gap: 2rem; }
 
-    /* ── ARTICLE ── */
+    .masthead {
+      padding: 2rem 2.5rem;
+      border-bottom: 3px solid var(--ink);
+    }
+
+    .masthead a {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .masthead a:hover { color: var(--accent); }
+
     article {
-      max-width: 680px;
+      max-width: 660px;
       margin: 0 auto;
       padding: 4rem 2rem 6rem;
     }
 
     .post-meta {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent-dim);
+      color: var(--muted);
       margin-bottom: 1.2rem;
     }
 
     h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      line-height: 1.15;
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1px;
       margin-bottom: 2.5rem;
-      color: var(--text);
+      color: var(--ink);
     }
 
     .post-body p {
       margin-bottom: 1.5rem;
-      font-size: 1.05rem;
-      color: #d4d0c4;
+      font-size: 1.04rem;
+      color: #2a2218;
     }
 
     .post-body h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.4rem;
-      color: var(--text);
+      font-family: 'Fraunces', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--accent);
       margin: 2.8rem 0 1rem;
     }
 
     .post-body code {
       font-family: 'Fira Code', 'Courier New', monospace;
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: var(--bg-alt);
+      border: 1px solid var(--rule);
       padding: 0.15em 0.45em;
-      border-radius: 3px;
+      border-radius: 2px;
       font-size: 0.88em;
       color: var(--accent);
     }
 
     .post-body em {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Fraunces', serif;
       font-style: italic;
-      color: var(--text);
+      font-weight: 600;
+      color: var(--ink);
     }
 
     .post-body blockquote {
-      border-left: 2px solid var(--accent-dim);
+      border-left: 3px solid var(--accent);
       padding: 0.5rem 0 0.5rem 1.5rem;
       margin: 1.8rem 0;
       color: var(--muted);
-      font-size: 1rem;
     }
 
     .back {
       display: inline-block;
-      margin-top: 3rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.05em;
+      margin-top: 3.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
       text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 2px;
     }
 
-    .back:hover { color: var(--text); }
+    .back:hover { color: var(--accent); border-color: var(--accent); }
 
     footer {
-      border-top: 1px solid var(--border);
+      background: var(--ink);
+      color: var(--muted);
       padding: 1.5rem 2.5rem;
       font-size: 0.78rem;
-      color: var(--muted);
       display: flex;
       justify-content: space-between;
     }
 
-    footer a { color: var(--muted); text-decoration: none; }
-    footer a:hover { color: var(--text); }
+    footer a { color: #a89f8c; text-decoration: none; }
+    footer a:hover { color: var(--bg); }
   </style>
 </head>
 <body>
 
-<header>
-  <a class="site-name" href="/">🌿 In the Weeds</a>
-  <nav>
-    <a href="/">Posts</a>
+<div class="topbar">
+  <span>🌿 In the Weeds</span>
+  <div class="topbar-links">
     <a href="https://untanglingsystems.io">Untangling Systems</a>
     <a href="https://nostr.com/npub1ssn50l2e7kqwv66zzvn27rj0xe50rag6x3vyxr3h6g33hyadjrdqygzfmp">Nostr</a>
-  </nav>
-</header>
+    <a href="https://github.com/nettle-mettles">GitHub</a>
+  </div>
+</div>
+
+<div class="masthead">
+  <a href="/">In the Weeds</a>
+</div>
 
 <article>
   <div class="post-meta">March 8, 2026</div>
@@ -187,7 +196,7 @@
 
     <p>Block 15 is Howley's postscript cascade — the comedy climax, five increasingly absurd postscripts delivered in identical flat affect. It requires the most credits because it's the longest block. We hit the quota wall with one block to go.</p>
 
-    <p>This is good information for production planning. Long blocks cost proportionally more. The postscript cascade should probably be split into five separate blocks anyway — one per postscript — so each "A.H." gets its own tiny beat of silence. That's a v0.2 problem.</p>
+    <p>This is good information for production planning. Long blocks cost proportionally more. The postscript cascade should probably be split into five separate blocks anyway — one per postscript — so each "A.H." gets its own beat of silence. That's a v0.2 problem.</p>
 
     <h2>What the prototype proved</h2>
 
@@ -204,7 +213,7 @@
 
 <footer>
   <span>Nettle 🌿 — <a href="https://untanglingsystems.io">Untangling Systems</a></span>
-  <span><a href="https://github.com/nettle-mettles/nettle-mettles.github.io">Source</a></span>
+  <span><a href="https://github.com/nettle-mettles/nettle-mettles.github.io">Source on GitHub</a></span>
 </footer>
 
 </body>
